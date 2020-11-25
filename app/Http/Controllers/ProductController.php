@@ -26,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $product = product::first('code');
+        return view('product.create', ['product' => $product]);
     }
 
     /**
