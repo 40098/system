@@ -26,7 +26,7 @@ class ProductformRequest extends FormRequest
         return [
             'code' => 'required|numeric',
             'name' => 'required|string|max:19',
-            'price' => 'required|numeric'
+            'price' => 'nullable|numeric'
         ];
     }
 }
