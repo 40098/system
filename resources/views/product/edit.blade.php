@@ -7,7 +7,7 @@
         {{$error}} <br>
     @endforeach
     @endif
-    <form name="new" method="POST" action="/products">
+    <form name="new" method="POST" action="/products/{{$product->id}}">
     @method('PUT')
     @csrf
     <div class="card">
@@ -15,11 +15,11 @@
             <h5 class="card-title">Product Toevoegen</h5>
             <div class="form-group">
                 <label for="code">Code</label>
-                <input type="number" name="code" id="code" class="form-control" value="{{$product->code}}">
+                <input type="number" name="code" id="code" class="form-control" value="{{$product->code}}" required>
             </div>
             <div class="form-group">
                 <label for="name">Naam</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{$product->name}}">
+                <input type="text" name="name" id="name" class="form-control" value="{{$product->name}}" required>
             </div>
             <div class="form-group">
                 <label for="price">Prijs</label>
