@@ -55,57 +55,62 @@
         </tr>
         </tbody>
     </table>
-    <h4>Producten</h4>
-    <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Code</th>
-            <th scope="col">Naam</th>
-            <th scope="col">Prijs</th>
-            <th scope="col">aantal</th>
-        </tr>
-    </thead>
-    <tbody>
+    
+    @if(!$order->products->isEmpty())
+        <h4>Producten</h4>
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Naam</th>
+                <th scope="col">Prijs</th>
+                <th scope="col">aantal</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    @foreach($order->products as $product)
-        <br>
-        <tr>
-            <td>{{$product->code}}</td>
-            <td>{{$product->name}}</td>
-            <td>{{$product->pivot->price}}</td>
-            <td>{{$product->pivot->amount}}</td>
-        </tr>
+        @foreach($order->products as $product)
+            <br>
+            <tr>
+                <td>{{$product->code}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->pivot->price}}</td>
+                <td>{{$product->pivot->amount}}</td>
+            </tr>
 
-    @endforeach
-        </tbody>
-    </table>
-    <h4>Klant</h4>
-    <table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Naam</th>
-            <th scope="col">Bedrijf</th>
-            <th scope="col">Mobiele telefoon</th>
-            <th scope="col">Huis telefoon</th>
-            <th scope="col">Email</th>
-            <th scope="col">Adres</th>
-            <th scope="col">Postcode</th>
-            <th scope="col">Woonplaats</th>
-        </tr>
-    </thead>
-    <tbody>
-        <br>
-        <tr>
-            <td>{{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}</td>
-            <td>{{$order->customer->company}}</td>
-            <td>{{$order->customer->mobile_phone}}</td>
-            <td>{{$order->customer->house_phone}}</td>
-            <td>{{$order->customer->email}}</td>
-            <td>{{$order->customer->address}}</td>
-            <td>{{$order->customer->zip}}</td>
-            <td>{{$order->customer->city}}</td>
-        </tr>
+        @endforeach
+            </tbody>
+        </table>
+    @endif
+    @if($order->customer)
+        <h4>Klant</h4>
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Naam</th>
+                <th scope="col">Bedrijf</th>
+                <th scope="col">Mobiele telefoon</th>
+                <th scope="col">Huis telefoon</th>
+                <th scope="col">Email</th>
+                <th scope="col">Adres</th>
+                <th scope="col">Postcode</th>
+                <th scope="col">Woonplaats</th>
+            </tr>
+        </thead>
+        <tbody>
+            <br>
+            <tr>
+                <td>{{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}</td>
+                <td>{{$order->customer->company}}</td>
+                <td>{{$order->customer->mobile_phone}}</td>
+                <td>{{$order->customer->house_phone}}</td>
+                <td>{{$order->customer->email}}</td>
+                <td>{{$order->customer->address}}</td>
+                <td>{{$order->customer->zip}}</td>
+                <td>{{$order->customer->city}}</td>
+            </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    @endif
 @endsection
