@@ -73,10 +73,8 @@
             <div class="form-group">
                 <label for="status">Status</label>
                 <select name="status" id="status" class="form-control">
-                    <option value="0">Bezig</option>
-                    <option value="1">Klaar</option>
-                    <option value="2">Stilgezet</option>
-                    <option value="3">Vastgelopen</option>
+                    <option value="open" default selected>Open</option>
+                    <option value="done">klaar</option>
                 </select>
             </div>
             <div class="form-group float-right">

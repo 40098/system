@@ -12,11 +12,7 @@
     @csrf
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Order Toevoegen</h5>
-            <div class="form-group">
-                <label for="name">Naam</label>
-                <input type="text" name="name" id="name" class="form-control" value="{{$order->name}}">
-            </div>
+            <h5 class="card-title">Order bewerken</h5>
             <div class="form-group">
                 <label for="handed">Ingeleverd</label>
                 <input type="text" name="handed" id="nahandedme" class="form-control" value="{{$order->handed}}">
@@ -28,10 +24,8 @@
             <div class="form-group">
                 <label for="status">Status</label>
                 <select name="status" id="status" class="form-control">
-                    <option value="0" @if($order->status===0) selected @endif>Bezig</option>
-                    <option value="1" @if($order->status===1) selected @endif>Klaar</option>
-                    <option value="2" @if($order->status===2) selected @endif>Stilgezet</option>
-                    <option value="3" @if($order->status===3) selected @endif>Vastgelopen</option>
+                    <option value="open" @if($order->status== 'open') selected @endif>Open</option>
+                    <option value="closed" @if($order->status== 'closed') selected @endif>Klaar</option>
                 </select>
             </div>
             <div class="form-group float-right">

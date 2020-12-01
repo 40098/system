@@ -25,7 +25,7 @@
         <br>
         <tr>
             <td>{{$order->user->name}}</td>
-            <td>{{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}, {{$order->customer->company}}</td>
+            <td>@if($order->customer){{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}, {{$order->customer->company}}@endif</td>
             <td>{{$order->handed}}</td>
             <td>{{$order->description}}</td>
             <td>
