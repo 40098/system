@@ -12,7 +12,7 @@
         <tr>
             <th scope="col">Naam</th>
             <th scope="col">Bedrijf</th>
-            <th scope="col">city</th>
+            <th scope="col">Woonplaats</th>
             <th scope="col">Details</th>
         </tr>
     </thead>

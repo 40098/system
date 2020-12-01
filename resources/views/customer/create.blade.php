@@ -13,16 +13,20 @@
         <div class="card-body">
             <h5 class="card-title">Klant Toevoegen</h5>
             <div class="form-group">
-                <label for="first_name">Voornaam</label>
-                <input type="text" name="first_name" id="first_name" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="insertion_name">Tussenvoegsel</label>
-                <input type="text" name="insertion_name" id="insertion_name" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="last_name">Achternaam</label>
-                <input type="text" name="last_name" id="last_name" class="form-control">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="first_name">Voornaam</label>
+                        <input type="text" name="first_name" id="first_name" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="insertion_name">Tussenvoegsel</label>
+                        <input type="text" name="insertion_name" id="insertion_name" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="last_name">Achternaam</label>
+                        <input type="text" name="last_name" id="last_name" class="form-control">
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="company">Bedrijf</label>

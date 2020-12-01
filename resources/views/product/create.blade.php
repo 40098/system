@@ -14,7 +14,7 @@
             <h5 class="card-title">Product Toevoegen</h5>
             <div class="form-group">
                 <label for="code">Code</label>
-                <input type="number" name="code" id="code" class="form-control" required>
+                <input type="number" name="code" id="code" class="form-control" placeholder="" value="@if(!empty($product->code)){{$product->code+1}}@endif">
             </div>
             <div class="form-group">
                 <label for="name">Naam</label>
