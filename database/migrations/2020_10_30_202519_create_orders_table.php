@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->unsignedTinyInteger('status')->default(0);
+            $table->enum('status',['open', 'done'])->default('open');
             $table->text("handed")->nullable();
             $table->text("description")->nullable();
             $table->timestamps();
