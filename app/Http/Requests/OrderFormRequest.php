@@ -25,7 +25,6 @@ class OrderFormRequest extends FormRequest
     {
         return [
             'customer_id' => 'big-integer|unsigned|foreign:customers,id,',
-            'name' => 'string|max:19',
             'handed' => 'max:100',
             'description' => 'max:100',
         ];
