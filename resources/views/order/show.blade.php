@@ -38,17 +38,11 @@
             <td>{{$order->description}}</td>
             <td>
                 @switch ($order->status)
-                    @case(0)
-                        Bezig
+                    @case("open")
+                        Open
                         @break
-                    @case(1)
+                    @case("done")
                         Klaar
-                        @break
-                    @case(2)
-                        Stilgezet
-                        @break
-                    @case(3)
-                        Vastgelopen
                         @break
                 @endswitch
             </td>
@@ -75,7 +69,7 @@
                 <td>{{$product->code}}</td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->pivot->price}}</td>
-                <td>{{$product->pivot->amount}}</td>
+                <td>{{$product->pivot->quantity}}</td>
             </tr>
 
         @endforeach

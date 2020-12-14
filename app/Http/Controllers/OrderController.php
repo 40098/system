@@ -49,7 +49,19 @@ class OrderController extends Controller
         $order->handed = $request->input('handed');
         $order->description = $request->input('description');
         $order->save();
-        $order->products()->attach($request->input('products', 'amount', 'price'));
+
+        $products = $request->input('product');
+        $quantities = $request->input('quantity');
+        $prices = $request->input('price');
+        if ($products) {
+            $sync_data = [];
+            for($i = 0; $i < count($products); $i++){
+                $sync_data[$products[$i]] = ['quantity' => $quantities[$i], 'price' => $prices[$i]];
+                $order->products()->attach($sync_data);
+            }
+        }
+            
+        
         return redirect('/orders')->with('message', 'De gegevens zijn opgeslagen in de database');
     }
 

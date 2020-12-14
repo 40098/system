@@ -25,7 +25,7 @@
                 <label for="status">Status</label>
                 <select name="status" id="status" class="form-control">
                     <option value="open" @if($order->status== 'open') selected @endif>Open</option>
-                    <option value="closed" @if($order->status== 'closed') selected @endif>Klaar</option>
+                    <option value="done" @if($order->status== 'done') selected @endif>Klaar</option>
                 </select>
             </div>
             <div class="form-group float-right">

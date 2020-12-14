@@ -4,7 +4,7 @@
 
     @if($errors->any())
     @foreach ($errors->all() as $error)
-        {{$error}} <br>
+        <span class="text-danger form-text">{{$error}} </span><br>
     @endforeach
     @endif
     <script>
@@ -17,7 +17,7 @@
         $(add_button).click(function(e){
             e.preventDefault();
                 x++;
-                $(wrapper).append('<div class="row"><div class="col-sm-12"><hr></div><div class="col-sm-5"><select name="products[]" class="form-control"><option value="" disabled selected>Kies een product</option>@foreach($products as $product)<option value="{{$product->id}}">{{$product->code}}, {{$product->name}}</option>@endforeach</select></div><div class="col-sm-3"><input type="number" name="amount[]" id="amount" class="form-control" placeholder="aantal"></div><div class="col-sm-3"><input type="number" name="price[]" id="price" class="form-control" placeholder="Prijs per stuk"></div><a href="#" class="delete btn btn-outline-danger">Delete</a>  </div>'); //add input box
+                $(wrapper).append('<div class="row"><div class="col-sm-12"><hr></div><div class="col-sm-5"><select name="product[]" class="form-control"><option value="" disabled selected>Kies een product</option>@foreach($products as $product)<option value="{{$product->id}}">{{$product->code}}, {{$product->name}}</option>@endforeach</select></div><div class="col-sm-3"><input type="number" name="quantity[]" id="amount" class="form-control" value="1" placeholder="Aantal" required></div><div class="col-sm-3"><input type="number" step="any" name="price[]" id="price" class="form-control" placeholder="Prijs per stuk" required></div><a href="#" class="delete btn btn-outline-danger">Delete</a>  </div>'); //add input box
         });
     
         $(wrapper).on("click",".delete", function(e){
@@ -51,21 +51,7 @@
                 <label for="products">Producten</label>
                 <div class="container1">
                     <div class="row">
-                        <div class="col-sm-5">
-                            <select name="products[]" class="form-control">
-                                <option value="" disabled selected>Kies een product</option>
-                                @foreach($products as $product)
-                                    <option value="{{$product->id}}">{{$product->code}}, {{$product->name}}, {{$product->price}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="number" name="amount[]" id="amount" class="form-control" placeholder="aantal">
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="number" name="price[]" id="price" class="form-control" placeholder="Prijs per stuk">
-                        </div>
-                        <div class="col-sm-1">
+                        <div class="col-sm-12">
                             <button type="button" class="add_form_field btn btn-outline-primary">Add</button>
                         </div>  
                     </div> 

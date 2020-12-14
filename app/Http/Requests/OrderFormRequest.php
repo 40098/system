@@ -24,9 +24,9 @@ class OrderFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'customer_id' => 'big-integer|unsigned|foreign:customers,id,',
-            'handed' => 'max:100',
-            'description' => 'max:100',
+            'customer' => 'numeric,',
+            'handed' => 'nullable|string|max:100',
+            'description' => 'nullable|string|max:100',
         ];
     }
 }
