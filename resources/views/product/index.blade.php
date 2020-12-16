@@ -6,7 +6,8 @@
         <p class="alert alert-info">{{ Session::get('message') }}</p>
     @endif
 
-    <a href="/products/create" role="button" class="btn btn-outline-primary">Toevoegen</a><br/>
+    <a href="/products/create" role="button" class="btn btn-outline-primary">Toevoegen</a>
+    <br><br>
     <table class="table">
     <thead>
         <tr>
@@ -19,12 +20,11 @@
     <tbody>
 
     @foreach($products as $product)
-        <br>
         <tr>
             <td>{{$product->code}}</td>
             <td>{{$product->name}}</td>
             <td>{{$product->price}}</td>
-            <td><a href="/products/{{$product->id}}" class="d-flex justify-content-center"><i class="material-icons">build</i></a></td>
+            <td><a href="/products/{{$product->id}}" class="float-let"><i class="material-icons">build</i></a></td>
         </tr>
 
     @endforeach

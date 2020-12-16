@@ -14,7 +14,7 @@
             <h5 class="card-title">Product Toevoegen</h5>
             <div class="form-group">
                 <label for="code">Code</label>
-                <input type="number" name="code" id="code" class="form-control" placeholder="" value="@if(!empty($product->code)){{$product->code+1}}@endif">
+                <input type="number" name="code" id="code" class="form-control" placeholder="" value="@if(!empty($product->code)){{$product->code+1}}@endif" required>
             </div>
             <div class="form-group">
                 <label for="name">Naam</label>
@@ -22,11 +22,11 @@
             </div>
             <div class="form-group">
                 <label for="price">Prijs</label>
-                <input type="number" name="price" id="price" class="form-control">
+                <input type="number" name="price" id="price" class="form-control" step="any">
             </div>
             <div class="form-group float-right">
                 <a href="/products" role="button" class="btn btn-outline-secondary">Terug</a>
-                <input type="submit" class="btn btn-outline-primary" value="Toevoegen">
+                <input type="submit" class="btn btn-outline-primary" value="Opslaan">
             </div>
         </div>
     </div>

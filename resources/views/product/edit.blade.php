@@ -23,11 +23,11 @@
             </div>
             <div class="form-group">
                 <label for="price">Prijs</label>
-                <input type="number" name="price" id="price" class="form-control" value="{{$product->price}}">
+                <input type="number" name="price" id="price" class="form-control" value="{{$product->price}}" step="any">
             </div>
             <div class="form-group float-right">
                 <a href="/products" role="button" class="btn btn-outline-secondary">Terug</a>
-                <input type="submit" class="btn btn-outline-primary" value="Toevoegen">
+                <input type="submit" class="btn btn-outline-primary" value="Opslaan">
             </div>
         </div>
     </div>

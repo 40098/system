@@ -58,7 +58,7 @@
             </div>
             <div class="form-group float-right">
                 <a href="/customers" role="button" class="btn btn-outline-secondary">Terug</a>
-                <input type="submit" class="btn btn-outline-primary" value="Toevoegen">
+                <input type="submit" class="btn btn-outline-primary" value="Opslaan">
             </div>
         </div>
     </div>

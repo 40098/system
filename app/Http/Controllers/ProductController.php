@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product = product::first('code');
+        $product = product::orderBy('id', 'desc')->first('code');
         return view('product.create', ['product' => $product]);
     }
 
@@ -73,7 +73,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductFormRequest $request, $id)
     {
         $product = Product::findOrFail($id);
         $product->fill($request->all())->save();
