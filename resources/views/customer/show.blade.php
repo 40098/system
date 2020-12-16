@@ -75,7 +75,7 @@
             </td>
             <td>
             </td>
-            <td><a href="/orders/{{$order->id}}" class="d-flex justify-content-center"><i class="material-icons">build</i></a></td>
+            <td><a href="/orders/{{$order->id}}" class="float-left"><i class="material-icons">build</i></a></td>
         </tr>
     @endforeach
         </tbody>
