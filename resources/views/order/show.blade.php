@@ -25,7 +25,9 @@
         <tr>
             <th scope="col">Werknemer</th>
             <th scope="col">Ingeleverd</th>
+            <th scope="col">Probleem</th>
             <th scope="col">Beschrijving</th>
+            <th scope="col">Wachtwoord</th>
             <th scope="col">Status</th>
         </tr>
     </thead>
@@ -35,7 +37,9 @@
         <tr>
             <td>{{$order->user->name}}</td>
             <td>{{$order->handed}}</td>
+            <td>{{$order->problem}}</td>
             <td>{{$order->description}}</td>
+            <td>{{$order->password}}</td>
             <td>
                 @switch ($order->status)
                     @case("open")
@@ -49,33 +53,6 @@
         </tr>
         </tbody>
     </table>
-    
-    @if(!$order->products->isEmpty())
-        <h4>Producten</h4>
-        <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Code</th>
-                <th scope="col">Naam</th>
-                <th scope="col">Prijs</th>
-                <th scope="col">aantal</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        @foreach($order->products as $product)
-            <br>
-            <tr>
-                <td>{{$product->code}}</td>
-                <td>{{$product->name}}</td>
-                <td>{{$product->pivot->price}}</td>
-                <td>{{$product->pivot->quantity}}</td>
-            </tr>
-
-        @endforeach
-            </tbody>
-        </table>
-    @endif
     @if($order->customer)
         <h4>Klant</h4>
         <table class="table">

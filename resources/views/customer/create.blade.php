@@ -45,27 +45,26 @@
                 <input type="text" name="email" id="email" class="form-control">
             </div>
             <div class="form-group">
-                <label for="address">Adres</label>
-                <input type="text" name="address" id="address" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="zip">Postcode</label>
-                <input type="text" name="zip" id="zip" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="city">Woonplaats</label>
-                <input type="text" name="city" id="city" class="form-control">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="address">Adres</label>
+                        <input type="text" name="address" id="address" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="zip">Postcode</label>
+                        <input type="text" name="zip" id="zip" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="city">Woonplaats</label>
+                        <input type="text" name="city" id="city" class="form-control">
+                    </div>
+                </div>
             </div>
             <div class="form-group float-right">
                 <a href="/customers" role="button" class="btn btn-outline-secondary">Terug</a>
                 <input type="submit" class="btn btn-outline-primary" value="Opslaan">
             </div>
         </div>
-    </div>
-
-
-
-
-        
+    </div>   
     </form>
 @endsection

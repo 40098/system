@@ -13,8 +13,9 @@
             <th scope="col">Werknemer</th>
             <th scope="col">Klant</th>
             <th scope="col">Ingeleverd</th>
+            <th scope="col">Probleem</th>
             <th scope="col">Beschrijving</th>
-            <th scope="col">Product(en)</th>
+            <th scope="col">Wachtwoord</th>
             <th scope="col">Status</th>
             <th scope="col">Details</th>
         </tr>
@@ -27,12 +28,9 @@
             <td>{{$order->user->name}}</td>
             <td>@if($order->customer){{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}, {{$order->customer->company}}@endif</td>
             <td>{{$order->handed}}</td>
+            <td>{{$order->problem}}</td>
             <td>{{$order->description}}</td>
-            <td>
-                @foreach($order->products as $product)
-                {{$product->name}}
-                @endforeach
-            </td>
+            <td>{{$order->password}}</td>
             <td>
                 @switch ($order->status)
                     @case("open")

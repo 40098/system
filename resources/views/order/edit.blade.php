@@ -7,7 +7,7 @@
         {{$error}} <br>
     @endforeach
     @endif
-    <form name="new" method="POST" action="/orders/{{$order->id}}">
+    <form name="edit" method="POST" action="/orders/{{$order->id}}">
     @method('PUT')
     @csrf
     <div class="card">
@@ -18,8 +18,16 @@
                 <input type="text" name="handed" id="nahandedme" class="form-control" value="{{$order->handed}}">
             </div>
             <div class="form-group">
+                <label for="problem">Probleem</label>
+                <input type="text" name="problem" id="problem" class="form-control" value="{{$order->problem}}">
+            </div>
+            <div class="form-group">
                 <label for="description">Beschrijving</label>
                 <input type="text" name="description" id="description" class="form-control" value="{{$order->description}}">
+            </div>
+            <div class="form-group">
+                <label for="password">Wachtwoord</label>
+                <input type="text" name="password" id="password" class="form-control" value="{{$order->password}}">
             </div>
             <div class="form-group">
                 <label for="status">Status</label>
