@@ -21,7 +21,10 @@ class CreateOrdersTable extends Migration
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->enum('status',['open', 'done'])->default('open');
             $table->text("handed")->nullable();
+            $table->text("problem")->nullable();
             $table->text("description")->nullable();
+            $table->text("password")->nullable();
+            $table->float("price")->nullable();
             $table->timestamps();
         });
     }

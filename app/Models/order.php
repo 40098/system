@@ -9,7 +9,7 @@ class order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'customer_id', 'status', 'handed', 'description'];
+    protected $fillable = ['user_id', 'customer_id', 'status', 'handed', 'problem', 'description', 'password'];
 
     public function user()
     {
@@ -21,10 +21,6 @@ class order extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function products()
-    {
-        return $this->belongsToMany('App\Models\product')->withPivot('price','amount')->withTimestamps();
-    }
 }
 
 

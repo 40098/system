@@ -24,7 +24,7 @@
             <td>{{$customer->first_name}} {{$customer->insertion_name}} {{$customer->last_name}}</td>
             <td>{{$customer->company}}</td>
             <td>{{$customer->city}}</td>
-            <td><a href="/customers/{{$customer->id}}" class="d-flex justify-content-center"><i class="material-icons">build</i></a></td>
+            <td><a href="/customers/{{$customer->id}}" class="float-left"><i class="material-icons">build</i></a></td>
         </tr>
 
     @endforeach

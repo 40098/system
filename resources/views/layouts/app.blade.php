@@ -39,7 +39,6 @@
                     <ul class="navbar-nav mr-auto">
                         <li><a href="/orders" class="nav-link">Orders</a></li>
                         <li><a href="/customers" class="nav-link">Klanten</a></li>
-                        <li><a href="/products" class="nav-link">Producten</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
