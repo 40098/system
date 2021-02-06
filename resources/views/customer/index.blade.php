@@ -7,7 +7,7 @@
     @endif
 
     <a href="/customers/create" role="button" class="btn btn-outline-primary">Toevoegen</a><br/>
-    <table class="table">
+    <table class="table mt-4">
     <thead>
         <tr>
             <th scope="col">Naam</th>
@@ -19,7 +19,6 @@
     <tbody>
 
     @foreach($customers as $customer)
-        <br>
         <tr>
             <td>{{$customer->first_name}} {{$customer->insertion_name}} {{$customer->last_name}}</td>
             <td>{{$customer->company}}</td>
@@ -30,4 +29,7 @@
     @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {{ $customers->links() }}
+    </div>
 @endsection

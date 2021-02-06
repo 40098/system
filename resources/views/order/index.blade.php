@@ -6,8 +6,8 @@
         <p class="alert alert-info">{{ Session::get('message') }}</p>
     @endif
 
-    <a href="/orders/create" role="button" class="btn btn-outline-primary">Toevoegen</a><br/>
-    <table class="table">
+    <a href="/orders/create" role="button" class="btn btn-outline-primary">Toevoegen</a>
+    <table class="table mt-4">
     <thead>
         <tr>
             <th scope="col">Werknemer</th>
@@ -23,7 +23,6 @@
     <tbody>
 
     @foreach($orders as $order)
-        <br>
         <tr>
             <td>{{$order->user->name}}</td>
             <td>@if($order->customer){{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}, {{$order->customer->company}}@endif</td>
@@ -46,4 +45,7 @@
     @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {{ $orders->links() }}
+    </div>
 @endsection
