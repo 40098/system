@@ -41,14 +41,15 @@ class OrderController extends Controller
     public function store(OrderFormRequest $request)
     {
         $order = new Order();
-        if (!empty($request->input('customer'))) {
-            $order->customer_id = $request->input('customer');
-        }else{
+        if ($request->input('customer') == "none") {
             $customer = new customer();
             $customer->fill($request->all());
             $customer->save();
             $order->customer_id = $customer->id;
+        }else{
+            $order->customer_id = $request->input('customer'); 
         }
+        
         $order->fill($request->all());
         $order->user_id = Auth::user()->id;
         $order->order_nr = "00000000";

@@ -24,7 +24,6 @@ class OrderFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'customer' => 'numeric',
             'handed' => 'nullable|string|max:100',
             'description' => 'nullable|string|max:100',
         ];

@@ -6,6 +6,7 @@
         $(document).ready(function(){
             $('.createCustomer').hide();
             $("#addCustomer").click(function(){
+                $('#customer').val("none");
                 $('.chooseCustomer').hide();
                 $('.createCustomer').show();
             });
@@ -27,7 +28,7 @@
                 <div class="row">
                     <div class="col-10">
                         <select name="customer" class="form-control">
-                            <option value="" disabled selected>Kies een klant</option>
+                            <option value="" id="customer" selected>Kies een klant</option>
                             @foreach($customers as $customer)
                                 <option value="{{$customer->id}}">{{$customer->first_name}} {{$customer->insertion_name}} {{$customer->last_name}}, {{$customer->company}}</option>
                             @endforeach

@@ -11,7 +11,7 @@
     @csrf
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Klant Toevoegen</h5>
+            <h5 class="card-title">Klant toevoegen</h5>
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-4">
