@@ -9,7 +9,7 @@ class order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'customer_id', 'status', 'handed', 'problem', 'description', 'password'];
+    protected $fillable = ['user_id', 'customer_id', 'order_nr', 'status', 'handed', 'problem', 'description', 'password'];
 
     public function user()
     {
@@ -20,6 +20,11 @@ class order extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+
+    public function getOrderNumber()
+{
+    return str_pad($this->id, 8, "0", STR_PAD_LEFT);
+}
 
 }
 

@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('orders', App\Http\Controllers\OrderController::class)->middleware([ 'auth']);
+route::get('/orders/{order}/done', [App\Http\Controllers\OrderController::class, 'done']);
 
 Route::resource('customers', App\Http\Controllers\CustomerController::class)->middleware([ 'auth']);
 

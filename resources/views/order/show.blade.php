@@ -23,6 +23,7 @@
     <table class="table">
     <thead>
         <tr>
+            <th scope="col">Nummer</th>
             <th scope="col">Werknemer</th>
             <th scope="col">Ingeleverd</th>
             <th scope="col">Probleem</th>
@@ -35,6 +36,7 @@
 
         <br>
         <tr>
+            <td>{{$order->order_nr}}</td>
             <td>{{$order->user->name}}</td>
             <td>{{$order->handed}}</td>
             <td>{{$order->problem}}</td>

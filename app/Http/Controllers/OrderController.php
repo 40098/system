@@ -17,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::paginate(10);
+        $orders = Order::orderBy('id', 'DESC')->paginate(10);
         return view('order.index', ['orders' => $orders]);
     }
 
@@ -41,8 +41,19 @@ class OrderController extends Controller
     public function store(OrderFormRequest $request)
     {
         $order = new Order();
+        if (!empty($request->input('customer'))) {
+            $order->customer_id = $request->input('customer');
+        }else{
+            $customer = new customer();
+            $customer->fill($request->all());
+            $customer->save();
+            $order->customer_id = $customer->id;
+        }
         $order->fill($request->all());
         $order->user_id = Auth::user()->id;
+        $order->order_nr = "00000000";
+        $order->save();
+        $order->order_nr = strtoupper(substr($order->user->name, 0, 2)) .str_pad($order->id, 8, "0", STR_PAD_LEFT);
         $order->save();
         
         return redirect('/orders')->with('message', 'De gegevens zijn opgeslagen in de database');
@@ -97,5 +108,13 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->delete();
         return redirect('/orders')->with('message', 'De gegevens zijn verwijderd uit de database');
+    }
+
+    public function done($id)
+    {
+        $order = Order::find($id);
+        $order->status = 'done';
+        $order->save();
+        return redirect('/orders')->with('message', 'De gegevens zijn opgeslagen in de database');
     }
 }

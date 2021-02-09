@@ -24,16 +24,16 @@ class CustomerFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'string|max:100',
-            'insertion_name' => 'string|max:100',
-            'last_name' => 'string|max:100',
-            'company' => 'string|max:100',
-            'mobile_phone' => 'string|max:100',
-            'house_phone' => 'string|max:100',
-            'email' => 'string|max:100',
-            'address' => 'string|max:100',
-            'zip' => 'string|max:100',
-            'city' => 'string|max:100',
+            'first_name' => 'nullable|string|max:100',
+            'insertion_name' => 'nullable|string|max:100',
+            'last_name' => 'nullable|string|max:100',
+            'company' => 'nullable|string|max:100',
+            'mobile_phone' => 'nullable|string|max:100',
+            'house_phone' => 'nullable|string|max:100',
+            'email' => 'nullable|string|max:100',
+            'address' => 'nullable|string|max:100',
+            'zip' => 'nullable|string|max:100',
+            'city' => 'nullable|string|max:100',
         ];
     }
 }

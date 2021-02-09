@@ -10,6 +10,7 @@
     <table class="table mt-4">
     <thead>
         <tr>
+            <th scope="col">Nummer</th>
             <th scope="col">Werknemer</th>
             <th scope="col">Klant</th>
             <th scope="col">Ingeleverd</th>
@@ -24,6 +25,7 @@
 
     @foreach($orders as $order)
         <tr>
+            <td>{{$order->order_nr}}</td>
             <td>{{$order->user->name}}</td>
             <td>@if($order->customer){{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}, {{$order->customer->company}}@endif</td>
             <td>{{$order->handed}}</td>
@@ -40,7 +42,10 @@
                         @break
                 @endswitch
             </td>
-            <td><a href="/orders/{{$order->id}}" class="d-flex justify-content-center"><i class="material-icons">build</i></a></td>
+            <td>
+                <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
+                <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
+            </td>
         </tr>
     @endforeach
         </tbody>
