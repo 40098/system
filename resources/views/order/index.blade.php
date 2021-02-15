@@ -10,14 +10,14 @@
     <table class="table mt-4">
     <thead>
         <tr>
-            <th scope="col">Nummer</th>
-            <th scope="col">Werknemer</th>
-            <th scope="col">Klant</th>
-            <th scope="col">Ingeleverd</th>
-            <th scope="col">Probleem</th>
-            <th scope="col">Beschrijving</th>
-            <th scope="col">Wachtwoord</th>
-            <th scope="col">Status</th>
+            <th scope="col">@sortablelink('order_nr', 'Nummer')</th>
+            <th scope="col">@sortablelink('user.name', 'Werknemer')</th>
+            <th scope="col">@sortablelink('customer.company', 'Klant')</th>
+            <th scope="col">@sortablelink('handed', 'Ingeleverd')</th>
+            <th scope="col">@sortablelink('problem', 'Probleem')</th>
+            <th scope="col">@sortablelink('description', 'Beschrijving')</th>
+            <th scope="col">@sortablelink('password', 'Wachtwoord')</th>
+            <th scope="col">@sortablelink('status', 'Status')</th>
             <th scope="col">Details</th>
         </tr>
     </thead>
