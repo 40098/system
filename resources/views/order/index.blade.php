@@ -12,7 +12,7 @@
         <tr>
             <th scope="col">@sortablelink('order_nr', 'Nummer')</th>
             <th scope="col">@sortablelink('user.name', 'Werknemer')</th>
-            <th scope="col">@sortablelink('customer.company', 'Klant')</th>
+            <th scope="col">@sortablelink('customer.name', 'Klant')</th>
             <th scope="col">@sortablelink('handed', 'Ingeleverd')</th>
             <th scope="col">@sortablelink('problem', 'Probleem')</th>
             <th scope="col">@sortablelink('description', 'Beschrijving')</th>
@@ -27,7 +27,7 @@
         <tr>
             <td>{{$order->order_nr}}</td>
             <td>{{$order->user->name}}</td>
-            <td>@if($order->customer){{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}} {{$order->customer->company}}@endif</td>
+            <td>@if($order->customer){{$order->customer->name}}@endif</td>
             <td>{{$order->handed}}</td>
             <td>{{$order->problem}}</td>
             <td>{{$order->description}}</td>

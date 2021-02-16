@@ -24,10 +24,7 @@ class CustomerFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'nullable|string|max:100',
-            'insertion_name' => 'nullable|string|max:100',
-            'last_name' => 'nullable|string|max:100',
-            'company' => 'nullable|string|max:100',
+            'name' => 'nullable|string|max:100',
             'mobile_phone' => 'nullable|string|max:100',
             'house_phone' => 'nullable|string|max:100',
             'email' => 'nullable|string|max:100',

@@ -24,7 +24,6 @@
     <thead>
         <tr>
             <th scope="col">Naam</th>
-            <th scope="col">Bedrijf</th>
             <th scope="col">Mobiele telefoon</th>
             <th scope="col">Huis telefoon</th>
             <th scope="col">Email</th>
@@ -36,8 +35,7 @@
     <tbody>
         <br>
         <tr>
-            <td>{{$customer->first_name}} {{$customer->insertion_name}} {{$customer->last_name}}</td>
-            <td>{{$customer->company}}</td>
+            <td>{{$customer->name}}</td>
             <td>{{$customer->mobile_phone}}</td>
             <td>{{$customer->house_phone}}</td>
             <td>{{$customer->email}}</td>
@@ -68,8 +66,19 @@
             <td>{{$order->handed}}</td>
             <td>{{$order->description}}</td>
             <td>
+                @switch ($order->status)
+                    @case("open")
+                        Open
+                        @break
+                    @case("done")
+                        Klaar
+                        @break
+                @endswitch
             </td>
-            <td><a href="/orders/{{$order->id}}" class="float-left"><i class="material-icons">build</i></a></td>
+            <td>
+                <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
+                <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
+            </td>
         </tr>
     @endforeach
         </tbody>

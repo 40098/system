@@ -37,7 +37,9 @@ class CustomerController extends Controller
      */
     public function store(CustomerFormRequest $request)
     {
-        customer::create($request->all());
+        $customer = new Customer();
+        $customer->fill($request->all());
+        $customer->save();
         return redirect('/customers')->with('message', 'De gegevens zijn opgeslagen in de database');
     }
 

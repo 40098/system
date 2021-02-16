@@ -11,8 +11,8 @@
     <thead>
         <tr>
             <th scope="col">Naam</th>
-            <th scope="col">Bedrijf</th>
             <th scope="col">Woonplaats</th>
+            <th scope="col">Telefoonnummer</th>
             <th scope="col">Details</th>
         </tr>
     </thead>
@@ -20,9 +20,9 @@
 
     @foreach($customers as $customer)
         <tr>
-            <td>{{$customer->first_name}} {{$customer->insertion_name}} {{$customer->last_name}}</td>
-            <td>{{$customer->company}}</td>
+            <td>{{$customer->name}}</td>
             <td>{{$customer->city}}</td>
+            <td>{{$customer->mobile_phone}} {{$customer->house_phone}}</td>
             <td><a href="/customers/{{$customer->id}}" class="float-left"><i class="material-icons">build</i></a></td>
         </tr>
 

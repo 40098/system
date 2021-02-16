@@ -12,22 +12,10 @@
     @csrf
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Klant Toevoegen</h5>
+            <h5 class="card-title">Klant bewerken</h5>
             <div class="form-group">
-                <label for="first_name">Voornaam</label>
-                <input type="text" name="first_name" id="first_name" class="form-control" value="{{$customer->first_name}}">
-            </div>
-            <div class="form-group">
-                <label for="insertion_name">Tussenvoegsel</label>
-                <input type="text" name="insertion_name" id="insertion_name" class="form-control" value="{{$customer->insertion_name}}">
-            </div>
-            <div class="form-group">
-                <label for="last_name">Achternaam</label>
-                <input type="text" name="last_name" id="last_name" class="form-control" value="{{$customer->last_name}}">
-            </div>
-            <div class="form-group">
-                <label for="company">Bedrijf</label>
-                <input type="text" name="company" id="company" class="form-control" value="{{$customer->company}}">
+                <label for="name">Naam</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{$customer->name}}">
             </div>
             <div class="form-group">
                 <label for="mobile_phone">Mobiele telefoon</label>

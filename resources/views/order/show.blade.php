@@ -61,26 +61,26 @@
         <thead>
             <tr>
                 <th scope="col">Naam</th>
-                <th scope="col">Bedrijf</th>
                 <th scope="col">Mobiele telefoon</th>
                 <th scope="col">Huis telefoon</th>
                 <th scope="col">Email</th>
                 <th scope="col">Adres</th>
                 <th scope="col">Postcode</th>
                 <th scope="col">Woonplaats</th>
+                <th scope="col">Details</th>
             </tr>
         </thead>
         <tbody>
             <br>
             <tr>
-                <td>{{$order->customer->first_name}} {{$order->customer->insertion_name}} {{$order->customer->last_name}}</td>
-                <td>{{$order->customer->company}}</td>
+                <td>{{$order->customer->name}}</td>
                 <td>{{$order->customer->mobile_phone}}</td>
                 <td>{{$order->customer->house_phone}}</td>
                 <td>{{$order->customer->email}}</td>
                 <td>{{$order->customer->address}}</td>
                 <td>{{$order->customer->zip}}</td>
                 <td>{{$order->customer->city}}</td>
+                <td><a href="/customers/{{$order->customer->id}}" class="float-left"><i class="material-icons">build</i></a></td>
             </tr>
 
             </tbody>

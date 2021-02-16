@@ -116,6 +116,6 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->status = 'done';
         $order->save();
-        return redirect('/orders')->with('message', 'De gegevens zijn opgeslagen in de database');
+        return back()->withInput()->with('message', 'De gegevens zijn opgeslagen in de database');
     }
 }
