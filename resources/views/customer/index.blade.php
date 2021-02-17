@@ -25,8 +25,8 @@
             <td>{{$customer->name}}</td>
             <td>{{$customer->city}}</td>
             <td>{{$customer->mobile_phone}} {{$customer->house_phone}}</td>
-            <td>{{$customer->created_at->format('d-m-Y')}}</td>
-            <td>{{$customer->updated_at->format('d-m-Y')}}</td>
+            <td>{{$customer->created_at->format('d-m-Y H:i')}}</td>
+            <td>{{$customer->updated_at->format('d-m-Y H:i')}}</td>
             <td><a href="/customers/{{$customer->id}}" class="float-left"><i class="material-icons">build</i></a></td>
         </tr>
 

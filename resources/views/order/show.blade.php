@@ -7,14 +7,17 @@
     @endif
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="pr-2">
+                <a href="/orders" role="button" class="btn btn-outline-secondary">Terug</a>
+            </div>
+            <div class="px-2">
                 <form name="del" method="POST" action="/orders/{{$order->id}}">
                     @method('DELETE')
                     @csrf
                     <input type="submit" class="btn btn-outline-danger" value="Verwijderen">
                 </form>
             </div>
-            <div class="col-2">
+            <div class="px-2">
                 <a href="/orders/{{$order->id}}/edit" role="button" class="btn btn-outline-primary" >Bewerken</a>
             </div>
         </div>

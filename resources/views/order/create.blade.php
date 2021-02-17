@@ -80,6 +80,14 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="employee">Werknemer</label>
+                <select name="employee" class="form-control">
+                    @foreach($users as $user)
+                        <option value="{{$user->id}}" @if($user->id == Auth::user()->id ) selected @endif>{{$user->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="handed">Ingeleverd</label>
                 <input type="text" name="handed" id="handed" class="form-control" placeholder="">
             </div>

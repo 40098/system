@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\OrderFormRequest;
 use App\Models\Order;
 use App\Models\Customer;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -29,7 +30,8 @@ class OrderController extends Controller
     public function create()
     {
         $customers = Customer::all();
-        return view('order.create', ['customers' => $customers]);
+        $users = User::all();
+        return view('order.create', ['customers' => $customers], ['users' => $users]);
     }
 
     /**
@@ -51,7 +53,7 @@ class OrderController extends Controller
         }
         
         $order->fill($request->all());
-        $order->user_id = Auth::user()->id;
+        $order->user_id = $request->input('employee');
         $order->order_nr = "00000000";
         $order->save();
         $order->order_nr = strtoupper(substr($order->user->name, 0, 2)) .str_pad($order->id, 8, "0", STR_PAD_LEFT);
