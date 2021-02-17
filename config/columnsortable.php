@@ -7,7 +7,7 @@ return [
     */
     'columns'                       => [
         'alpha'   => [
-            'rows'  => ['description', 'password', 'name', 'handen', 'problem'],
+            'rows'  => ['description', 'password', 'name', 'handen', 'problem', 'city'],
             'class' => 'fa fa-sort-alpha',
         ],
         'amount'  => [

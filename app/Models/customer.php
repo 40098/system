@@ -11,6 +11,8 @@ class customer extends Model
 
     protected $fillable = ['name', 'mobile_phone', 'house_phone', 'email', 'address', 'zip', 'city'];
 
+    public $sortable = ['name', 'city', 'updated_at', 'created_at'];
+
     public function orders()
     {
         return $this->hasMany(Order::class);

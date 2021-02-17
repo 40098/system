@@ -12,7 +12,7 @@ class order extends Model
 
     protected $fillable = ['user_id', 'customer_id', 'order_nr', 'status', 'handed', 'problem', 'description', 'password'];
 
-    public $sortable = ['id', 'user_id', 'customer_id', 'order_nr', 'status', 'password', 'handed', 'problem', 'description'];
+    public $sortable = ['user_id', 'customer_id', 'order_nr', 'status', 'problem', 'description', 'updated_at', 'created_at'];
 
     public function user()
     {

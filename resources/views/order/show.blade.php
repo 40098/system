@@ -29,6 +29,8 @@
             <th scope="col">Probleem</th>
             <th scope="col">Beschrijving</th>
             <th scope="col">Wachtwoord</th>
+            <th scope="col">Aangemaakt</th>
+            <th scope="col">Bewerkt</th>
             <th scope="col">Status</th>
         </tr>
     </thead>
@@ -42,6 +44,8 @@
             <td>{{$order->problem}}</td>
             <td>{{$order->description}}</td>
             <td>{{$order->password}}</td>
+            <td>{{$order->created_at->format('d-m-Y H:i')}}</td>
+            <td>{{$order->updated_at->format('d-m-Y H:i')}}</td>
             <td>
                 @switch ($order->status)
                     @case("open")

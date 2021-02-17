@@ -99,7 +99,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="price">Prijs</label>
-                        <input type="text" name="price" id="price" class="form-control">
+                        <input type="number" step="10" name="price" id="price" class="form-control">
                     </div>
                     <div class="col-sm-6">
                         <label for="status">Status</label>
