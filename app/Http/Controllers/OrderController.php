@@ -25,8 +25,14 @@ class OrderController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $orders = Order::search('laptop')->get();
-        dd($orders);
+        $columns = ['order_nr', 'handed', 'problem', 'description', 'password'];
+        $query = Order::query();
+        foreach($columns as $column){
+            $query->orWhere($column, 'LIKE', '%' . $search . '%');
+        }
+        // dd($query);
+        $orders = $query->sortable(['id' => 'DESC'])->paginate(10);
+        
         return view('order.index', ['orders' => $orders]);
     }
 

@@ -5,13 +5,22 @@
     @if(Session::has('message'))
         <p class="alert alert-info">{{ Session::get('message') }}</p>
     @endif
-
-    <a href="/orders/create" role="button" class="btn btn-outline-primary">Toevoegen</a>
-    <form action="/orders/search" method="POST">
-        @csrf
-        <input type="text" name="search">
-        <input type="submit">
-    </form>
+    <div class=" float-left">
+        <a href="/orders/create" role="button" class="btn btn-outline-primary">Toevoegen</a>
+    </div>
+    <div class=" float-right pr-2">
+        <form action="/orders/search" method="POST">
+            <div class=" form-group row">
+                <div class="px-2">
+                    @csrf
+                    <input type="text" class="form-control" name="search" placeholder="Typ hier...">
+                </div>
+                <div class="px-2">
+                    <input type="submit" class="btn btn-outline-secondary" value="Zoeken">
+                </div>
+            </div>
+        </form>
+    </div>
     <table class="table mt-4">
     <thead>
         <tr>

@@ -19,6 +19,20 @@ class CustomerController extends Controller
         return view('customer.index', ['customers' => $customers]);
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $columns = ['name', 'mobile_phone', 'house_phone', 'email', 'address', 'zip', 'city'];
+        $query = Customer::query();
+        foreach($columns as $column){
+            $query->orWhere($column, 'LIKE', '%' . $search . '%');
+        }
+        $customers = $query->paginate(10);
+        
+        return view('customer.index', ['customers' => $customers]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

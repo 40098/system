@@ -7,7 +7,7 @@
         {{$error}} <br>
     @endforeach
     @endif
-    <form name="new" method="POST" action="/customers">
+    <form name="new" method="POST" action="/customers/{{$customer->id}}">
     @method('PUT')
     @csrf
     <div class="card">

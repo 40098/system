@@ -6,7 +6,22 @@
         <p class="alert alert-info">{{ Session::get('message') }}</p>
     @endif
 
-    <a href="/customers/create" role="button" class="btn btn-outline-primary">Toevoegen</a><br/>
+    <div class=" float-left">
+        <a href="/customers/create" role="button" class="btn btn-outline-primary">Toevoegen</a>
+    </div>
+    <div class=" float-right pr-2">
+        <form action="/customers/search" method="POST">
+            <div class=" form-group row">
+                <div class="px-2">
+                    @csrf
+                    <input type="text" class="form-control" name="search" placeholder="Typ hier...">
+                </div>
+                <div class="px-2">
+                    <input type="submit" class="btn btn-outline-secondary" value="Zoeken">
+                </div>
+            </div>
+        </form>
+    </div>
     <table class="table mt-4">
     <thead>
         <tr>
