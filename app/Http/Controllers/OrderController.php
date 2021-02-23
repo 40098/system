@@ -22,6 +22,14 @@ class OrderController extends Controller
         return view('order.index', ['orders' => $orders]);
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $orders = Order::search('laptop')->get();
+        dd($orders);
+        return view('order.index', ['orders' => $orders]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

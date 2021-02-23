@@ -25,9 +25,9 @@ class order extends Model
     }
 
     public function getOrderNumber()
-{
-    return str_pad($this->id, 8, "0", STR_PAD_LEFT);
-}
+    {
+        return str_pad($this->id, 8, "0", STR_PAD_LEFT);
+    }
 
 }
 

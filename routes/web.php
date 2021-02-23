@@ -17,6 +17,7 @@ Route::get('/', function () {
     return redirect('/orders');
 });
 
+route::get('/orders/search', [App\Http\Controllers\OrderController::class, 'search']);
 Route::resource('orders', App\Http\Controllers\OrderController::class)->middleware([ 'auth']);
 route::get('/orders/{order}/done', [App\Http\Controllers\OrderController::class, 'done']);
 

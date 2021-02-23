@@ -7,6 +7,11 @@
     @endif
 
     <a href="/orders/create" role="button" class="btn btn-outline-primary">Toevoegen</a>
+    <form action="/orders/search" method="POST">
+        @csrf
+        <input type="text" name="search">
+        <input type="submit">
+    </form>
     <table class="table mt-4">
     <thead>
         <tr>
