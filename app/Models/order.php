@@ -10,7 +10,7 @@ class order extends Model
 {
     use HasFactory, Sortable;
 
-    protected $fillable = ['user_id', 'customer_id', 'order_nr', 'status', 'handed', 'problem', 'description', 'password'];
+    protected $fillable = ['user_id', 'customer_id', 'order_nr', 'status', 'handed', 'problem', 'description', 'password', 'price'];
 
     public $sortable = ['user_id', 'customer_id', 'order_nr', 'status', 'problem', 'description', 'updated_at', 'created_at'];
 
@@ -22,6 +22,11 @@ class order extends Model
     public function customer()
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    public function calls()
+    {
+        return $this->hasMany(Call::class);
     }
 
     public function getOrderNumber()

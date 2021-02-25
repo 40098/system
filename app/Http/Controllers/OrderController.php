@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\OrderFormRequest;
 use App\Models\Order;
 use App\Models\Customer;
+use App\Models\Call;
 use App\Models\User;
 
 class OrderController extends Controller
@@ -30,7 +31,6 @@ class OrderController extends Controller
         foreach($columns as $column){
             $query->orWhere($column, 'LIKE', '%' . $search . '%');
         }
-        // dd($query);
         $orders = $query->sortable(['id' => 'DESC'])->paginate(10);
         
         return view('order.index', ['orders' => $orders]);

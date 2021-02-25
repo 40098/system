@@ -89,8 +89,49 @@
                 <td>{{$order->customer->city}}</td>
                 <td><a href="/customers/{{$order->customer->id}}" class="float-left"><i class="material-icons">build</i></a></td>
             </tr>
-
-            </tbody>
-        </table>
+            
+        </tbody>
+    </table>
     @endif
-@endsection
+    @if($order->calls)
+        <h4>Telefoonberichten</h4>
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Bericht</th>
+            </tr>
+        </thead>
+        <tbody>
+        @forelse($order->calls as $call)
+        <tr>
+            <td>{{$call->message}}</td>
+            <td>
+                @switch ($call->status)
+                    @case("spoken")
+                        Gesproken
+                        @break
+                    @case("voicemail")
+                        Voicemail ingesproken
+                        @break
+                    @case("ignored")
+                        Niet opgenomen
+                        @break
+                @endswitch
+            </td>
+            <td>{{$order->created_at->format('d-m-Y H:i')}}</td>
+            <td>{{$order->updated_at->format('d-m-Y H:i')}}</td>
+            <td>
+                <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
+                <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
+            </td>
+        </tr>
+    @empty
+        </tbody>
+        </table>
+        <span class="d-flex justify-content-center">Er zijn geen gegevens gevonden!</span>
+    @endforelse
+        </tbody>
+    </table>
+    @endif
+    @endsection
