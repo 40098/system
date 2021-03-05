@@ -5,10 +5,18 @@
     <script>
         $(document).ready(function(){
             $('.createCustomer').hide();
-            $("#addCustomer").click(function(){
+
+            $("#createCustomer").click(function(){
                 $('#customer').val("none");
                 $('.chooseCustomer').hide();
                 $('.createCustomer').show();
+                $('#name').prop('required',true);
+            });
+            $("#chooseCustomer").click(function(){
+                $('#customer').val("");
+                $('.createCustomer').hide();
+                $('.chooseCustomer').show();
+                $('#name').removeAttr('required');
             });
         });
     </script>
@@ -35,7 +43,7 @@
                         </select>
                     </div>
                     <div class="col-2">
-                        <input type="button" id="addCustomer" class="btn btn-outline-primary float-right" value="Klant toevoegen">
+                        <input type="button" id="createCustomer" class="btn btn-outline-primary float-right" value="Klant toevoegen">
                     </div>
                 </div>
             </div>
@@ -43,7 +51,14 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Naam</label>
-                        <input type="text" name="name" id="name" class="form-control">
+                        <div class="row">
+                            <div class="col-10">
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" id="chooseCustomer" class="btn btn-outline-primary float-right" value="Klant kiezen">
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="row">

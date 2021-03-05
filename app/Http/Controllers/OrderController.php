@@ -30,7 +30,6 @@ class OrderController extends Controller
         foreach($columns as $column){
             $query->orWhere($column, 'LIKE', '%' . $search . '%');
         }
-        // dd($query);
         $orders = $query->sortable(['id' => 'DESC'])->paginate(10);
         
         return view('order.index', ['orders' => $orders]);
@@ -58,8 +57,13 @@ class OrderController extends Controller
     {
         $order = new Order();
         if ($request->input('customer') == "none") {
-            $customer = new customer();
-            $customer->fill($request->all());
+            $customer = new Customer();
+            $request = $request->validate(
+                [
+                    'name' => 'required',
+                ]
+            );
+            $customer->fill($request);
             $customer->save();
             $order->customer_id = $customer->id;
         }else{
