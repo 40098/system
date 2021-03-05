@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="pr-2">
-                <a href="/customers" role="button" class="btn btn-outline-secondary">Terug</a>
+                <input type="button" onclick="history.back()" class="btn btn-outline-secondary" value="Terug">
             </div>
             <div class="px-2">
                 <form name="del" method="POST" action="/customers/{{$customer->id}}">
@@ -16,9 +16,6 @@
                     @csrf
                     <input type="submit" class="btn btn-outline-danger" value="Verwijderen">
                 </form>
-            </div>
-            <div class="px-2">
-                <a href="/customers/{{$customer->id}}/edit" role="button" class="btn btn-outline-primary" >Bewerken</a>
             </div>
         </div>
     </div>
@@ -53,20 +50,21 @@
     <table class="table">
     <thead>
         <tr>
-            <th scope="col">Werknemer</th>
-            <th scope="col">Ingeleverd</th>
-            <th scope="col">Beschrijving</th>
-            <th scope="col">Status</th>
+            <th scope="col">@sortablelink('order_nr', 'Nummer')</th>
+            <th scope="col">@sortablelink('problem', 'Probleem')</th>
+            <th scope="col">@sortablelink('description', 'Beschrijving')</th>
+            <th scope="col">@sortablelink('status', 'Status')</th>
+            <th scope="col">@sortablelink('created_at', 'Aangemaakt')</th>
+            <th scope="col">@sortablelink('updated at', 'Bewerkt')</th>
             <th scope="col">Details</th>
         </tr>
     </thead>
     <tbody>
 
     @foreach($customer->orders as $order)
-        <br>
         <tr>
-            <td>{{$order->user->name}}</td>
-            <td>{{$order->handed}}</td>
+            <td>{{$order->order_nr}}</td>
+            <td>{{$order->problem}}</td>
             <td>{{$order->description}}</td>
             <td>
                 @switch ($order->status)
@@ -78,7 +76,10 @@
                         @break
                 @endswitch
             </td>
+            <td>{{$order->created_at->format('d-m-Y H:i')}}</td>
+            <td>{{$order->updated_at->format('d-m-Y H:i')}}</td>
             <td>
+                <a href="/orders/{{$order->id}}/edit"><i class="material-icons">edit</i></a>
                 <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
                 <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
             </td>

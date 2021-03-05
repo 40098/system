@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="pr-2">
-                <a href="/orders" role="button" class="btn btn-outline-secondary">Terug</a>
+                <input type="button" onclick="history.back()" class="btn btn-outline-secondary" value="Terug">
             </div>
             <div class="px-2">
                 <form name="del" method="POST" action="/orders/{{$order->id}}">
@@ -16,9 +16,6 @@
                     @csrf
                     <input type="submit" class="btn btn-outline-danger" value="Verwijderen">
                 </form>
-            </div>
-            <div class="px-2">
-                <a href="/orders/{{$order->id}}/edit" role="button" class="btn btn-outline-primary" >Bewerken</a>
             </div>
         </div>
     </div>
@@ -31,6 +28,7 @@
             <th scope="col">Ingeleverd</th>
             <th scope="col">Probleem</th>
             <th scope="col">Beschrijving</th>
+            <th scope="col">Prijs</th>
             <th scope="col">Wachtwoord</th>
             <th scope="col">Aangemaakt</th>
             <th scope="col">Bewerkt</th>
@@ -46,6 +44,7 @@
             <td>{{$order->handed}}</td>
             <td>{{$order->problem}}</td>
             <td>{{$order->description}}</td>
+            <td>{{$order->price}}</td>
             <td>{{$order->password}}</td>
             <td>{{$order->created_at->format('d-m-Y H:i')}}</td>
             <td>{{$order->updated_at->format('d-m-Y H:i')}}</td>
@@ -87,7 +86,10 @@
                 <td>{{$order->customer->address}}</td>
                 <td>{{$order->customer->zip}}</td>
                 <td>{{$order->customer->city}}</td>
-                <td><a href="/customers/{{$order->customer->id}}" class="float-left"><i class="material-icons">build</i></a></td>
+                <td>
+                    <a href="/customers/{{$order->customer->id}}/edit" class="float-left"><i class="material-icons">edit</i></a>
+                    <a href="/customers/{{$order->customer->id}}" class="float-left"><i class="material-icons">build</i></a>
+                </td>
             </tr>
 
             </tbody>

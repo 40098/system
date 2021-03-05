@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="form-group float-right">
-                <a href="/customers" role="button" class="btn btn-outline-secondary">Terug</a>
+                <input type="button" onclick="history.back()" class="btn btn-outline-secondary" value="Terug">
                 <input type="submit" class="btn btn-outline-primary" value="Opslaan">
             </div>
         </div>
