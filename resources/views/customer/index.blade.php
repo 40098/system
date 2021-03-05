@@ -17,7 +17,7 @@
                     <input type="text" class="form-control" name="search" placeholder="Typ hier...">
                 </div>
                 <div class="px-2">
-                    <input type="submit" class="btn btn-outline-secondary" value="Zoeken">
+                    <input type="submit" class="btn btn-outline-success" value="Zoeken">
                 </div>
             </div>
         </form>
