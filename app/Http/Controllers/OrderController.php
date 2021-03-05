@@ -85,6 +85,9 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
+        if (0 >= $order->calls->count()) {
+            $order->calls = null;
+        }
         return view('order.show', ['order' => $order]);
     }
 

@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <br><h4>Order</h4>
+    <h4 class="mt-3">Order</h4>
     <table class="table">
     <thead>
         <tr>
@@ -38,8 +38,6 @@
         </tr>
     </thead>
     <tbody>
-
-        <br>
         <tr>
             <td>{{$order->order_nr}}</td>
             <td>{{$order->user->name}}</td>
@@ -78,7 +76,6 @@
             </tr>
         </thead>
         <tbody>
-            <br>
             <tr>
                 <td>{{$order->customer->name}}</td>
                 <td>{{$order->customer->mobile_phone}}</td>
@@ -94,43 +91,37 @@
     </table>
     @endif
     @if($order->calls)
-        <h4>Telefoonberichten</h4>
+        <h4>Gebeld</h4>
         <table class="table">
         <thead>
             <tr>
                 <th scope="col">Status</th>
                 <th scope="col">Bericht</th>
+                <th scope="col">Aangemaakt</th>
+                <th scope="col">Bewerkt</th>
             </tr>
         </thead>
         <tbody>
-        @forelse($order->calls as $call)
+        @foreach($order->calls as $call)
         <tr>
-            <td>{{$call->message}}</td>
             <td>
                 @switch ($call->status)
-                    @case("spoken")
-                        Gesproken
-                        @break
-                    @case("voicemail")
-                        Voicemail ingesproken
-                        @break
-                    @case("ignored")
-                        Niet opgenomen
-                        @break
+                @case("spoken")
+                Gesproken
+                @break
+                @case("voicemail")
+                Voicemail ingesproken
+                @break
+                @case("ignored")
+                Niet opgenomen
+                @break
                 @endswitch
             </td>
+            <td>{{$call->message}}</td>
             <td>{{$order->created_at->format('d-m-Y H:i')}}</td>
             <td>{{$order->updated_at->format('d-m-Y H:i')}}</td>
-            <td>
-                <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
-                <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
-            </td>
         </tr>
-    @empty
-        </tbody>
-        </table>
-        <span class="d-flex justify-content-center">Er zijn geen gegevens gevonden!</span>
-    @endforelse
+    @endforeach
         </tbody>
     </table>
     @endif
