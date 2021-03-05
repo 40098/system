@@ -36,7 +36,7 @@
     </thead>
     <tbody>
 
-    @forelse($orders as $order)
+    @foreach($orders as $order)
         <tr>
             <td>{{$order->order_nr}}</td>
             <td>@if($order->customer){{$order->customer->name}}@endif</td>
@@ -59,11 +59,7 @@
                 <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
             </td>
         </tr>
-    @empty
-        </tbody>
-        </table>
-        <span class="d-flex justify-content-center">Er zijn geen gegevens gevonden!</span>
-    @endforelse
+    @endforeach
         </tbody>
     </table>
     <div class="d-flex justify-content-center">

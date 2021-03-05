@@ -35,7 +35,7 @@
     </thead>
     <tbody>
 
-    @forelse ($customers as $customer)
+    @foreach($customers as $customer)
         <tr>
             <td>{{$customer->name}}</td>
             <td>{{$customer->city}}</td>
@@ -44,11 +44,8 @@
             <td>{{$customer->updated_at->format('d-m-Y H:i')}}</td>
             <td><a href="/customers/{{$customer->id}}" class="float-left"><i class="material-icons">build</i></a></td>
         </tr>
-    @empty
-        </tbody>
-        </table>
-        <span class="d-flex justify-content-center">Er zijn geen gegevens gevonden!</span>
-    @endforelse
+
+    @endforeach
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
