@@ -18,8 +18,12 @@
                 $('.chooseCustomer').show();
                 $('#name').removeAttr('required');
             });
+            $('#searchSelect').selectize({
+                sortField: 'text'
+            });
         });
     </script>
+    
 
     @if($errors->any())
     @foreach ($errors->all() as $error)
@@ -35,7 +39,7 @@
                 <label for="customer">Klant</label>
                 <div class="row">
                     <div class="col-10">
-                        <select name="customer" class="form-control">
+                        <select name="customer" class="form-control" id="searchSelect">
                             <option value="" id="customer" selected>Kies een klant</option>
                             @foreach($customers as $customer)
                                 <option value="{{$customer->id}}">{{$customer->name}}</option>
