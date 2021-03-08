@@ -58,12 +58,12 @@ class OrderController extends Controller
         $order = new Order();
         if ($request->input('customer') == "none") {
             $customer = new Customer();
-            $request = $request->validate(
+            $request->validate(
                 [
                     'name' => 'required',
                 ]
             );
-            $customer->fill($request);
+            $customer->fill($request->all());
             $customer->save();
             $order->customer_id = $customer->id;
         }else{
