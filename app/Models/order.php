@@ -10,7 +10,7 @@ class order extends Model
 {
     use HasFactory, Sortable;
 
-    protected $fillable = ['user_id', 'customer_id', 'order_nr', 'status', 'handed', 'problem', 'description', 'password'];
+    protected $fillable = ['user_id', 'customer_id', 'order_nr', 'status', 'handed', 'problem', 'description', 'password', 'price'];
 
     public $sortable = ['user_id', 'customer_id', 'order_nr', 'status', 'problem', 'description', 'updated_at', 'created_at'];
 

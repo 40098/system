@@ -2,6 +2,14 @@
 
 @section('content')
 
+    <script>
+        $(document).ready(function(){
+            $('#searchSelect').selectize({
+                sortField: 'text'
+            });
+        });
+    </script>
+
     @if($errors->any())
     @foreach ($errors->all() as $error)
         {{$error}} <br>
@@ -13,6 +21,14 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Order bewerken</h5>
+            <div class="form-group">
+                <select name="customer" class="form-control" id="searchSelect">
+                    <option value="" id="customer" selected>Kies een klant</option>
+                    @foreach($customers as $customer)
+                        <option value="{{$customer->id}}">{{$customer->name}}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="form-group">
                 <label for="handed">Ingeleverd</label>
                 <input type="text" name="handed" id="nahandedme" class="form-control" value="{{$order->handed}}">
@@ -33,7 +49,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="price">Prijs</label>
-                        <input type="number" step="10" name="price" id="price" class="form-control">
+                        <input type="number" name="price" id="price" class="form-control" value="{{$order->price}}">
                     </div>
                     <div class="col-sm-6">
                         <label for="status">Status</label>

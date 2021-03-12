@@ -101,7 +101,8 @@ class OrderController extends Controller
     public function edit($id)
     {
         $order = Order::where('id',$id)->first();
-        return view('order.edit', ['order' => $order]);
+        $customers = Customer::all();
+        return view('order.edit', ['order' => $order], ['customers' => $customers]);
     }
 
     /**
@@ -114,7 +115,9 @@ class OrderController extends Controller
     public function update(OrderFormRequest $request, $id)
     {
         $order = Order::findOrFail($id);
-        $order->fill($request->all())->save();
+        $order->fill($request->all());
+        $order->customer_id = $request->input('customer');
+        $order->save();
         return redirect('/orders')->with('message', 'De gegevens zijn opgeslagen in de database');
     }
 
