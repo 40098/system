@@ -21,45 +21,55 @@
     </div>
     <br><h4>Order</h4>
     <table class="table">
-    <thead>
         <tr>
-            <th scope="col">Nummer</th>
-            <th scope="col">Werknemer</th>
-            <th scope="col">Ingeleverd</th>
-            <th scope="col">Probleem</th>
-            <th scope="col">Beschrijving</th>
-            <th scope="col">Prijs</th>
-            <th scope="col">Wachtwoord</th>
-            <th scope="col">Aangemaakt</th>
-            <th scope="col">Bewerkt</th>
-            <th scope="col">Status</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        <br>
-        <tr>
+            <th scope="row" width="15%">Nummer</th>
             <td>{{$order->order_nr}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Werknemer</th>
             <td>{{$order->user->name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Ingeleverd</th>
             <td>{{$order->handed}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Probleem</th>
             <td>{{$order->problem}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Beschrijving</th>
             <td>{{$order->description}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Prijs</th>
             <td>{{$order->price}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Wachtwoord</th>
             <td>{{$order->password}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Aangemaakt</th>
             <td>{{$order->created_at->format('d-m-Y H:i')}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Bewerkt</th>
             <td>{{$order->updated_at->format('d-m-Y H:i')}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Status</th>
             <td>
                 @switch ($order->status)
                     @case("open")
                         Open
-                        @break
+                    @break
                     @case("done")
                         Klaar
-                        @break
+                    @break
                 @endswitch
             </td>
-        </tr>
-        </tbody>
+        </tr>         
     </table>
     @if($order->customer)
         <h4>Klant</h4>
@@ -79,13 +89,13 @@
         <tbody>
             <br>
             <tr>
-                <td>{{$order->customer->name}}</td>
+                <td class="text-truncate">{{$order->customer->name}}</td>
                 <td>{{$order->customer->mobile_phone}}</td>
                 <td>{{$order->customer->house_phone}}</td>
-                <td>{{$order->customer->email}}</td>
-                <td>{{$order->customer->address}}</td>
-                <td>{{$order->customer->zip}}</td>
-                <td>{{$order->customer->city}}</td>
+                <td class="text-truncate"><a href="mailto:{{$order->customer->email}}">{{$order->customer->email}}</a></td>
+                <td class="text-truncate">{{$order->customer->address}}</td>
+                <td class="text-truncate">{{$order->customer->zip}}</td>
+                <td class="text-truncate">{{$order->customer->city}}</td>
                 <td>
                     <a href="/customers/{{$order->customer->id}}/edit" class="float-left"><i class="material-icons">edit</i></a>
                     <a href="/customers/{{$order->customer->id}}" class="float-left"><i class="material-icons">build</i></a>

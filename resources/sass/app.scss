@@ -12,3 +12,9 @@
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
+
+th {
+    white-space: nowrap;
+}.table {
+    table-layout: fixed;
+}

@@ -21,7 +21,7 @@
             </div>
         </form>
     </div>
-    <table class="table mt-4">
+    <table class="table table-striped mt-4">
     <thead>
         <tr>
             <th scope="col">@sortablelink('order_nr', 'Nummer')</th>
@@ -39,9 +39,9 @@
     @foreach($orders as $order)
         <tr>
             <td>{{$order->order_nr}}</td>
-            <td>@if($order->customer){{$order->customer->name}}@endif</td>
-            <td>{{$order->problem}}</td>
-            <td>{{$order->description}}</td>
+            <td class="text-truncate">@if($order->customer){{$order->customer->name}}@endif</td>
+            <td class="text-truncate">{{$order->problem}}</td>
+            <td class="text-truncate">{{$order->description}}</td>
             <td>
                 @switch ($order->status)
                     @case("open")
@@ -52,8 +52,8 @@
                         @break
                 @endswitch
             </td>
-            <td>{{$order->created_at->format('d-m-Y H:i')}}</td>
-            <td>{{$order->updated_at->format('d-m-Y H:i')}}</td>
+            <td>{{$order->created_at->format('d-m-Y')}}</td>
+            <td>{{$order->updated_at->format('d-m-Y')}}</td>
             <td>
                 <a href="/orders/{{$order->id}}/edit"><i class="material-icons">edit</i></a>
                 <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
