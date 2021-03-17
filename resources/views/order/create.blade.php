@@ -7,13 +7,13 @@
             $('.createCustomer').hide();
 
             $("#createCustomer").click(function(){
-                $('#customer').val("none");
+                $('#searchSelect option').val("none");
                 $('.chooseCustomer').hide();
                 $('.createCustomer').show();
                 $('#name').prop('required',true);
             });
             $("#chooseCustomer").click(function(){
-                $('#customer').val("");
+                $('#searchSelect option').val("");
                 $('.createCustomer').hide();
                 $('.chooseCustomer').show();
                 $('#name').removeAttr('required');

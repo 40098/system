@@ -25,7 +25,7 @@
                 <select name="customer" class="form-control" id="searchSelect">
                     <option value="" id="customer" selected>Kies een klant</option>
                     @foreach($customers as $customer)
-                        <option value="{{$customer->id}}">{{$customer->name}}</option>
+                        <option value="{{$customer->id}}" @if($customer->id == (!empty($order->customer->id)) ) selected @endif>{{$customer->name}}</option>
                     @endforeach
                 </select>
             </div>
