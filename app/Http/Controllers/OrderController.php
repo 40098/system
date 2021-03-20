@@ -55,7 +55,6 @@ class OrderController extends Controller
      */
     public function store(OrderFormRequest $request)
     {
-        dd($request);
         $order = new Order();
         if ($request->input('customer') == "none") {
             $customer = new Customer();
