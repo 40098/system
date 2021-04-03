@@ -11,6 +11,9 @@
                 <input type="button" onclick="history.back()" class="btn btn-outline-secondary" value="Terug">
             </div>
             <div class="px-2">
+                <a href="/orders/{{$order->id}}/edit" class="btn btn-outline-warning">Bewerken</a>
+            </div>
+            <div class="px-2">
                 <form name="del" method="POST" action="/orders/{{$order->id}}">
                     @method('DELETE')
                     @csrf

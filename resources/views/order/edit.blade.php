@@ -4,7 +4,7 @@
 
     <script>
         $(document).ready(function(){
-            $('#searchSelect').selectize({
+            let searchSelect = $('#searchSelect').selectize({
                 sortField: 'text'
             });
         });
@@ -23,9 +23,9 @@
             <h5 class="card-title">Order bewerken</h5>
             <div class="form-group">
                 <select name="customer" class="form-control" id="searchSelect">
-                    <option value="" id="customer" selected>Kies een klant</option>
+                    <option value="{{$customers->find($order->customer->id)->id}}" id="customer" selected>{{$customers->find($order->customer->id)->name}}</option>
                     @foreach($customers as $customer)
-                        <option value="{{$customer->id}}" @if($customer->id == (!empty($order->customer->id)) ) selected @endif>{{$customer->name}}</option>
+                        <option value="{{$customer->id}}">{{$customer->name}}</option>
                     @endforeach
                 </select>
             </div>
