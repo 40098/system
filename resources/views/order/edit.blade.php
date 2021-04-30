@@ -23,7 +23,11 @@
             <h5 class="card-title">Order bewerken</h5>
             <div class="form-group">
                 <select name="customer" class="form-control" id="searchSelect">
-                    <option value="{{$customers->find($order->customer->id)->id}}" id="customer" selected>{{$customers->find($order->customer->id)->name}}</option>
+                    @if (!empty($order->customer))
+                        <option value="{{$customers->find($order->customer->id)->id}}" id="customer" selected>{{$customers->find($order->customer->id)->name}}</option>
+                    @else
+                        <option value="" disabled selected></option>
+                    @endif
                     @foreach($customers as $customer)
                         <option value="{{$customer->id}}">{{$customer->name}}</option>
                     @endforeach

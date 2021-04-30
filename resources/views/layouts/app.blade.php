@@ -39,6 +39,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li><a href="/open-orders" class="nav-link">Open-orders</a></li>
                         <li><a href="/orders" class="nav-link">Orders</a></li>
                         <li><a href="/customers" class="nav-link">Klanten</a></li>
                     </ul>

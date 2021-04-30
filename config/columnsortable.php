@@ -105,7 +105,7 @@ return [
     /*
     default direction for non-sorted columns
      */
-    'default_direction_unsorted'    => 'desc',
+    'default_direction_unsorted'    => 'asc',
 
     /*
     use the first defined sortable column (Model::$sortable) as default

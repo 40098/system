@@ -14,15 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/orders');
+    return redirect('/open-orders');
 });
 
-Route::resource('orders', App\Http\Controllers\OrderController::class)->middleware([ 'auth']);
-route::post('/orders/search', [App\Http\Controllers\OrderController::class, 'search']);
-route::get('/orders/{order}/done', [App\Http\Controllers\OrderController::class, 'done']);
+Route::get('/open-orders', [App\Http\Controllers\OpenOrderController::class, 'index'])->middleware([ 'auth'])->name('openOrders.index');
+Route::put('/open-orders', [App\Http\Controllers\OpenOrderController::class, 'update'])->middleware([ 'auth'])->name('openOrders.update');
 
-Route::resource('customers', App\Http\Controllers\CustomerController::class)->middleware([ 'auth']);
-route::post('/customers/search', [App\Http\Controllers\CustomerController::class, 'search']);
+Route::resource('/orders', App\Http\Controllers\OrderController::class)->middleware([ 'auth']);
+route::post('/orders/search', [App\Http\Controllers\OrderController::class, 'search'])->middleware([ 'auth']);
+route::get('/orders/{order}/done', [App\Http\Controllers\OrderController::class, 'done'])->middleware([ 'auth']);
+
+Route::resource('/customers', App\Http\Controllers\CustomerController::class)->middleware([ 'auth']);
+route::post('/customers/search', [App\Http\Controllers\CustomerController::class, 'search'])->middleware([ 'auth']);
 
 Auth::routes();
 

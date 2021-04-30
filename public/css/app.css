@@ -17055,3 +17055,7 @@ th {
   table-layout: fixed;
 }
 
+.hiddenRow {
+  padding: 0 !important;
+}
+
