@@ -18,7 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('updated_at')->sortable()->paginate(10);
+        $orders = Order::sortable()->paginate(20);
         return view('order.index', ['orders' => $orders]);
     }
 
@@ -30,7 +30,7 @@ class OrderController extends Controller
         foreach($columns as $column){
             $query->orWhere($column, 'LIKE', '%' . $search . '%');
         }
-        $orders = $query->sortable()->paginate(10);
+        $orders = $query->sortable()->paginate(20);
         
         return view('order.index', ['orders' => $orders]);
     }

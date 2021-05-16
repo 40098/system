@@ -11,7 +11,7 @@ class OpenOrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('status', '=', 'open')->orderBy('updated_at')->sortable()->paginate(10);
+        $orders = Order::where('status', '=', 'open')->sortable()->paginate(20);
         return view('order.indexOpen', ['orders' => $orders]);
     }
 

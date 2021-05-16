@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class customer extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     protected $fillable = ['name', 'mobile_phone', 'house_phone', 'email', 'address', 'zip', 'city'];
 

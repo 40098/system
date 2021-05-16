@@ -16,7 +16,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::paginate(10);
+        $customers = Customer::sortable()->paginate(20);
         return view('customer.index', ['customers' => $customers]);
     }
 
@@ -28,7 +28,7 @@ class CustomerController extends Controller
         foreach($columns as $column){
             $query->orWhere($column, 'LIKE', '%' . $search . '%');
         }
-        $customers = $query->paginate(10);
+        $customers = $query->sortable()->paginate(20);
         
         return view('customer.index', ['customers' => $customers]);
     }
