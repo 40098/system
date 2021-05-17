@@ -67,7 +67,6 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = Customer::findOrFail($id);
-        $customer->orders = Order::sortable(['id' => 'DESC'])->paginate(10);
         return view('customer.show', ['customer' => $customer]);
     }
 
