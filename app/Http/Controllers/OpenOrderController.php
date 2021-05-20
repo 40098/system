@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\OpenOrderFormRequest;
 use App\Models\Order;
 use App\Models\Customer;
 
@@ -20,7 +21,7 @@ class OpenOrderController extends Controller
         return view('openOrder.edit', ['order' => $order]);
     }
 
-    public function update(Request $request, $id)
+    public function update(OpenOrderFormRequest $request, $id)
     {
         $order = Order::findOrFail($id);
         $order->fill($request->all());

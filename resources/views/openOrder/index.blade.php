@@ -43,7 +43,8 @@
             <td>{{$order->created_at->format('d-m-Y')}}</td>
             <td>{{$order->updated_at->format('d-m-Y')}}</td>
             <td>
-                <a href="{{route('open-orders.edit',$order->id)}}"><i class="material-icons">edit</i></a>
+                {{-- <a href="{{route('open-orders.edit',$order->id)}}"><i class="material-icons">edit</i></a> --}}
+                <a href="{{route('open-orders.edit',$order->id)}}" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{route('open-orders.edit',$order->id)}}"><i class="material-icons">edit</i></a>
                 <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
                 <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
             </td>
