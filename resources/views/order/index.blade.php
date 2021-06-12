@@ -58,6 +58,7 @@
                 <a href="/orders/{{$order->id}}/edit"><i class="material-icons">edit</i></a>
                 <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
                 <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
+                <a href="/orders/{{$order->id}}/print-label"><i class="material-icons">print</i></a>
             </td>
         </tr>
     @endforeach

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e64ab455ab44e09e4d8ca261d25e512",
+    "content-hash": "743765baae9458242c3df14ef9fc849b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -2549,6 +2549,59 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "ramytalal/label-printer",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RamyTalal/Label-Printer.git",
+                "reference": "3c0e6cf6b169f6d05462283f45a5113cbf840604"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RamyTalal/Label-Printer/zipball/3c0e6cf6b169f6d05462283f45a5113cbf840604",
+                "reference": "3c0e6cf6b169f6d05462283f45a5113cbf840604",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Talal\\LabelPrinter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ramy Talal",
+                    "email": "ramy@thinkquality.nl",
+                    "homepage": "https://thinkquality.nl"
+                }
+            ],
+            "description": "An implementation of the Brother label printer API.",
+            "homepage": "https://github.com/RamyTalal/Label-Printer",
+            "keywords": [
+                "brother",
+                "label",
+                "label printer",
+                "printer"
+            ],
+            "support": {
+                "issues": "https://github.com/RamyTalal/Label-Printer/issues",
+                "source": "https://github.com/RamyTalal/Label-Printer/tree/master"
+            },
+            "time": "2020-02-02T17:30:22+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

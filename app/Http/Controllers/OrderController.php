@@ -141,4 +141,15 @@ class OrderController extends Controller
         $order->save();
         return back()->withInput()->with('message', 'De gegevens zijn opgeslagen in de database');
     }
+
+    public function printLabel($id) {
+        $order = Order::find($id);
+        $customer = "Klant: {$order->customer->name}\n";
+        $orderNr = "Nummer: {$order->order_nr}\n";
+        $password = "Wachtwoord: {$order->password}";
+        $message = $customer.$orderNr.$password;
+        $order->printLabel($message);
+        return back()->with('message', 'Bon word geprint');
+    }
+
 }
