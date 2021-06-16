@@ -26,8 +26,9 @@ Route::resource('/open-orders', OpenOrderController::class)->middleware(['auth']
 
 Route::resource('/orders', OrderController::class)->middleware(['auth']);
 route::post('/orders/search', [OrderController::class, 'search'])->middleware(['auth']);
-route::get('/orders/{order}/done', [OrderController::class, 'done'])->middleware(['auth']);
-route::get('/orders/{order}/print-label', [OrderController::class, 'printLabel'])->middleware(['auth']);
+route::get('/orders/{order}/done', [OrderController::class, 'done'])->middleware(['auth'])->name('orders.done');
+route::get('/orders/{order}/printer', [OrderController::class, 'printer'])->middleware(['auth'])->name('orders.printer');
+route::post('/orders/{order}/print-label', [OrderController::class, 'printLabel'])->middleware(['auth'])->name('orders.print-label');
 
 Route::resource('/customers', CustomerController::class)->middleware([ 'auth']);
 route::post('/customers/search', [CustomerController::class, 'search'])->middleware(['auth']);

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     @if(Session::has('message'))
         <p class="alert alert-info">{{ Session::get('message') }}</p>
     @endif
@@ -38,15 +37,15 @@
     @foreach($orders as $order)
         <tr data-toggle="collapse" data-target="#demo{{$order->id}}" data-parent="#table" class="accordion-toggle">
             <td>{{$order->order_nr}}</td>
-            <td class="text-truncate">@if($order->customer)<a href="/customers/{{$order->customer->id}}">{{$order->customer->name}}@endif</a></td>
+            <td class="text-truncate">@if($order->customer){{$order->customer->name}}@endif</td>
             <td class="text-truncate" width>{{$order->description}}</td>
             <td>{{$order->created_at->format('d-m-Y')}}</td>
             <td>{{$order->updated_at->format('d-m-Y')}}</td>
             <td>
-                <a href="{{route('open-orders.edit',$order->id)}}" data-toggle="modal" id="largeButton" data-target="#largeModal" data-attr="{{route('open-orders.edit',$order->id)}}"><i class="material-icons">edit</i></a>
+                <a href="{{route('open-orders.edit',$order->id)}}" class="open-modal" data-toggle="modal" data-target="#largeModal" data-attr="{{route('open-orders.edit',$order->id)}}"><i class="material-icons">edit</i></a>
                 <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
                 <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
-                <a href="/orders/{{$order->id}}/print-label"><i class="material-icons">print</i></a>
+                <a href="/orders/{{$order->id}}/printer" class="open-modal" data-toggle="modal" data-target="#largeModal" data-attr="/orders/{{$order->id}}/printer"><i class="material-icons">print</i></a>
             </td>
         </tr>
         <tr>

@@ -76,6 +76,16 @@ class OrderController extends Controller
         $order->save();
         $order->order_nr = strtoupper(substr($order->user->name, 0, 2)) .str_pad($order->id, 8, "0", STR_PAD_LEFT);
         $order->save();
+
+        if ($request->input('printLabel')) {
+            $message = [];
+            $message[] = $order->order_nr ? "Nummer: {$order->order_nr}\n" : "" ;
+            $message[] = $order->customer->name ? "Naam: {$order->customer->name}\n" : "" ;
+            $message[] = $order->password ? "Wachtwoord: {$order->password}\n" : "" ;
+            $message = implode("", $message);
+
+            $order->printLabel($message);
+        }
         
         return redirect('/orders')->with('message', 'De gegevens zijn opgeslagen in de database');
     }
@@ -142,12 +152,28 @@ class OrderController extends Controller
         return back()->withInput()->with('message', 'De gegevens zijn opgeslagen in de database');
     }
 
-    public function printLabel($id) {
-        $order = Order::find($id);
-        $customer = "Klant: {$order->customer->name}\n";
-        $orderNr = "Nummer: {$order->order_nr}\n";
-        $password = "Wachtwoord: {$order->password}";
-        $message = $customer.$orderNr.$password;
+    public function printer($id) {
+        $order = Order::findOrFail($id);
+        return view('order.printer',['order'=>$order]);
+    }
+
+    public function printLabel(Request $request, $id) {
+        $order = Order::findOrFail($id);
+        $message = [];
+
+        $message[] = $request->input('order_nr') ? "Nummer: {$order->order_nr}\n" : "" ;
+        $message[] = $request->input('name') ? "Naam: {$order->name}\n" : "" ;
+        $message[] = $request->input('mobile_phone') ? "Mobiel telefoon: {$order->mobile_phone}\n" : "" ;
+        $message[] = $request->input('house_phone') ? "Huis telefoon: {$order->house_phone}\n" : "" ;
+        $message[] = $request->input('email') ? "Email: {$order->email}\n" : "" ;
+        $message[] = $request->input('price') ? "Prijs: {$order->price}\n" : "" ;
+        $message[] = $request->input('password') ? "Wachtwoord: {$order->password}\n" : "" ;
+        $message[] = $request->input('handed') ? "Ingeleverd: {$order->handed}\n" : "" ;
+        $message[] = $request->input('problem') ? "Probleem: {$order->problem}\n" : "" ;
+        $message[] = $request->input('description') ? "Beschrijving: {$order->description}\n" : "" ;
+        $message[] = !empty($request->input('extra')) ? "\n{$request->input('extra')}\n" : "" ;
+
+        $message = implode("", $message);
         $order->printLabel($message);
         return back()->with('message', 'Bon word geprint');
     }

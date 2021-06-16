@@ -138,6 +138,10 @@
                 </div>
             </div>
             <br>
+            <div class="form-check form-control-lg float-left">
+                <td><input type="checkbox" id="printLabel" class="form-check-input" name="printLabel" value="1" checked></td>
+                <td><label for="printLabel" class=" form-check-label">Print bon?</label></td> 
+            </div>
             <div class="form-group float-right">
                 <input type="button" onclick="history.back()" class="btn btn-outline-secondary" value="Terug">
                 <input type="submit" class="btn btn-outline-primary" value="Opslaan">

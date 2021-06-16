@@ -63,7 +63,7 @@
 </div>
 <div class="form-group">
     <label for="handed">Ingeleverd</label>
-    <input type="text" name="handed" id="nahandedme" class="form-control" value="{{$order->handed}}">
+    <input type="text" name="handed" id="handed" class="form-control" value="{{$order->handed}}">
 </div>            
 <div class="form-group">
     <label for="problem">Probleem</label>

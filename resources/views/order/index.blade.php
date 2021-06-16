@@ -55,10 +55,10 @@
             <td>{{$order->created_at->format('d-m-Y')}}</td>
             <td>{{$order->updated_at->format('d-m-Y')}}</td>
             <td>
-                <a href="/orders/{{$order->id}}/edit"><i class="material-icons">edit</i></a>
+                <a href="{{route('open-orders.edit',$order->id)}}" class="open-modal" data-toggle="modal" data-target="#largeModal" data-attr="{{route('open-orders.edit',$order->id)}}"><i class="material-icons">edit</i></a>
                 <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
                 <a href="/orders/{{$order->id}}"><i class="material-icons">build</i></a>
-                <a href="/orders/{{$order->id}}/print-label"><i class="material-icons">print</i></a>
+                <a href="/orders/{{$order->id}}/printer" class="open-modal" data-toggle="modal" data-target="#largeModal" data-attr="/orders/{{$order->id}}/printer"><i class="material-icons">print</i></a>
             </td>
         </tr>
     @endforeach

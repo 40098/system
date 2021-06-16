@@ -21,6 +21,7 @@
     
     <!-- Jquery -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/selectize.min.js') }}"></script>
     
@@ -92,7 +93,7 @@
     </div>
     <script>
     // display the modal
-    $(document).on('click', '#largeButton', function(event) {
+    $(document).on('click', '.open-modal', function(event) {
         event.preventDefault();
         let href = $(this).attr('data-attr');
         $.ajax({
