@@ -21,7 +21,7 @@
             </div>
         </form>
     </div>
-    <table class="table table-striped mt-4">
+    <table class="table table-responsive-sm table-striped mt-4">
     <thead>
         <tr>
             <th scope="col">@sortablelink('order_nr', 'Nummer')</th>

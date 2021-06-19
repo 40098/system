@@ -162,9 +162,9 @@ class OrderController extends Controller
         $message = [];
 
         $message[] = $request->input('order_nr') ? "Nummer: {$order->order_nr}\n" : "" ;
-        $message[] = $request->input('name') ? "Naam: {$order->name}\n" : "" ;
-        $message[] = $request->input('mobile_phone') ? "Mobiel telefoon: {$order->mobile_phone}\n" : "" ;
-        $message[] = $request->input('house_phone') ? "Huis telefoon: {$order->house_phone}\n" : "" ;
+        $message[] = $request->input('name') ? "Naam: {$order->customer->name}\n" : "" ;
+        $message[] = $request->input('mobile_phone') ? "Mobiel telefoon: {$order->customer->mobile_phone}\n" : "" ;
+        $message[] = $request->input('house_phone') ? "Huis telefoon: {$order->customer->house_phone}\n" : "" ;
         $message[] = $request->input('email') ? "Email: {$order->email}\n" : "" ;
         $message[] = $request->input('price') ? "Prijs: {$order->price}\n" : "" ;
         $message[] = $request->input('password') ? "Wachtwoord: {$order->password}\n" : "" ;

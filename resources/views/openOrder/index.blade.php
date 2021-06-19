@@ -21,14 +21,14 @@
         </form>
     </div>
 
-    <table class="table table-striped table-mt-4" id="table">
+    <table class="table table-responsive-sm table-striped table-mt-4" id="table">
     <thead>
         <tr>
             <th scope="col">@sortablelink('order_nr', 'Nummer')</th>
             <th scope="col">@sortablelink('customer.name', 'Klant')</th>
             <th scope="col">@sortablelink('description', 'Beschrijving')</th>
-            <th scope="col">@sortablelink('created_at', 'Aangemaakt')</th>
-            <th scope="col">@sortablelink('updated at', 'Bewerkt')</th>
+            <th class="d-md-none" scope="col">@sortablelink('created_at', 'Aangemaakt')</th>
+            <th class="d-md-none" scope="col">@sortablelink('updated at', 'Bewerkt')</th>
             <th scope="col">Details</th>
         </tr>
     </thead>
@@ -39,8 +39,8 @@
             <td>{{$order->order_nr}}</td>
             <td class="text-truncate">@if($order->customer){{$order->customer->name}}@endif</td>
             <td class="text-truncate" width>{{$order->description}}</td>
-            <td>{{$order->created_at->format('d-m-Y')}}</td>
-            <td>{{$order->updated_at->format('d-m-Y')}}</td>
+            <td class="d-md-none">{{$order->created_at->format('d-m-Y')}}</td>
+            <td class="d-md-none">{{$order->updated_at->format('d-m-Y')}}</td>
             <td>
                 <a href="{{route('open-orders.edit',$order->id)}}" class="open-modal" data-toggle="modal" data-target="#largeModal" data-attr="{{route('open-orders.edit',$order->id)}}"><i class="material-icons">edit</i></a>
                 <a href="/orders/{{$order->id}}/done"><i class="material-icons">done_outline</i></a>
